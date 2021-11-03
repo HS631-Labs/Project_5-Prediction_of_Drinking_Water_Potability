@@ -1,14 +1,17 @@
 ---
 title: "Project_5-Prediction_of_Drinking_Water_Potability"
 author: "Tiffany & Fahad"
-date: "11/3/2021"
-output: html_document
----
+date: "11/03/2021"
+knit:: (function(inputFile, encoding){
+  out_dir <- '../output';
+  rmarkdown::render(inputFile, encoding=encoding, output_file=file.path(dirname(inputFile), out_dir, 'Week8Assignment.html')) })
 
----
-title: "Project_5-Prediction_of_Drinking_Water_Potability"
-author: "Tiffany & Fahad"
-output: html_document
+
+output:
+  html_document:
+    theme: cosmo
+    toc: true
+  html_notebook: default
 ---
 
 # Project #5: Drinking Water Potability
@@ -34,37 +37,51 @@ The drinkingwaterpotability.csv file contains water quality metrics for 3276 dif
   9. Turbidity: The turbidity of water depends on the quantity of solid matter present in the suspended state. It is a measure of the light-emitting properties of water and the test is used to indicate the quality of waste discharge with respect to the colloidal matter. The mean turbidity value obtained for Wondo Genet Campus (0.98 NTU) is lower than the WHO recommended value of 5.00 NTU.
   10. Potability: Indicates if water is safe for human consumption where 1 means Potable and 0 means Not potable.
 
+*Our method is to have all used libraries in the top chunk to avoid any error in our  computational code
+
+```{r, warning = FALSE, message = FALSE}
+# loading required libraries to run the code so far and will be adding any required libraries for the further actions
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(DT)
+library(knitr)
+library(kableExtra)
+library(psych)
+library(gridExtra)
+library(grid)
+library(lattice)
+library(caret)
+library(car)
+library(pastecs)
+library(psych)
+library(wesanderson)
+library(gridExtra)
+library(e1071)
+library(boot)
+library(ggm)
+library(Hmisc)
+library(polycor)
+library(ppcor)
+library(corrplot)
+library(formattable)
+library(ggbeeswarm)
+library(gmodels)
+```
+
+
 ```{r}
 getwd()
 ```
 
 Read in Dataset:
 ```{r}
-dw.potability <- read.csv("./Data/drinking_water_potability.csv")
+dw.potability <- read.csv("./Data/drinking_water_potability.csv", header = TRUE, sep = ",")
 head(dw.potability)
+kable(head(dw.potability), booktabs =T) %>% kable_styling(latex_options ="striped")
+
+```
+```{r}
 str(dw.potability)
+
 ```
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
