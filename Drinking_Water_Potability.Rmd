@@ -107,3 +107,11 @@ dw.potability$potability_cat <- as.factor(dw.potability$potability_cat)
 
 str(dw.potability)
 ```
+```{r}
+na_omit_dw$potability_cat[na_omit_dw$Potability == 1] = "Potable"
+na_omit_dw$potability_cat[na_omit_dw$Potability == 0] = "Not Potable"
+
+na_omit_dw$potability_cat <- as.factor(na_omit_dw$potability_cat)
+
+str(na_omit_dw)
+```
