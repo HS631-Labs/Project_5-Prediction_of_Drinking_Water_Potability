@@ -159,5 +159,23 @@ Chloramines_hist <- ggplot(data = dw.potability,
                  na.rm = TRUE,
                  binwidth = 0.5)
 Chloramines_hist
+
+Sulfate_hist <- ggplot(data = dw.potability,
+                  aes(x = Sulfate,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 10)
+Sulfate_hist
+
+Conductivity_hist <- ggplot(data = dw.potability,
+                  aes(x = Conductivity,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 20)
+Conductivity_hist
 ```
 
