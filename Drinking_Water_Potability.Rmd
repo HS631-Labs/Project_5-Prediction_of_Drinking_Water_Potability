@@ -206,3 +206,12 @@ Turbidity_hist <- ggplot(data = dw.potability,
 Turbidity_hist
 ```
 
+Potability Bar Chart:
+```{r}
+potability_bar <- ggplot(data = dw.potability,
+                         aes(x = potability_cat,
+                             fill = potability_cat)) + 
+  geom_bar()
+potability_bar
+```
+
