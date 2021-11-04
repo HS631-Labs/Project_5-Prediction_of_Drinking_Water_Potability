@@ -45,7 +45,7 @@ head(dw.potability)
 str(dw.potability)
 ```
 
-Numeric Variable Summaries:
+Numerical Variable Summaries:
 ```{r}
 summary(dw.potability$ph)
 summary(dw.potability$Hardness)
