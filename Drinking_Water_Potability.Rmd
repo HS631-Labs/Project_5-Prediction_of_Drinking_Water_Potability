@@ -44,8 +44,38 @@ dw.potability <- read.csv("./Data/drinking_water_potability.csv")
 head(dw.potability)
 str(dw.potability)
 ```
+Check for NA values:
+```{r}
+ph_na <- is.na(dw.potability$ph)
+table(ph_na)
 
-<<<<<<< HEAD
+Hardness_na <- is.na(dw.potability$Hardness)
+table(Hardness_na)
+
+Solids_na <- is.na(dw.potability$Solids)
+table(Solids_na)
+
+Chloramines_na <- is.na(dw.potability$Chloramines)
+table(Chloramines_na)
+
+Sulfate_na <- is.na(dw.potability$Sulfate)
+table(Sulfate_na)
+
+Conductivity_na <- is.na(dw.potability$Conductivity)
+table(Conductivity_na)
+
+carbon_na <- is.na(dw.potability$Organic_carbon)
+table(carbon_na)
+
+Trihalomethanes_na <- is.na(dw.potability$Trihalomethanes)
+table(Trihalomethanes_na)
+
+Turbidity_na <- is.na(dw.potability$Turbidity)
+table(Turbidity_na)
+
+#[@tc] Variables that need to be cleaned:ph, Sulfate, Trihalomethanes
+```
+
 Numerical Variable Summaries:
 ```{r}
 summary(dw.potability$ph)
@@ -69,29 +99,3 @@ dw.potability$potability_cat <- as.factor(dw.potability$potability_cat)
 
 str(dw.potability)
 ```
-
-=======
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
->>>>>>> 5c5aa2fd092b5fa4cfb35f63004776222c1fa77e
