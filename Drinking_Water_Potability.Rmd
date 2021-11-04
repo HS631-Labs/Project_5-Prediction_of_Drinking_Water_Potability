@@ -34,6 +34,11 @@ The drinkingwaterpotability.csv file contains water quality metrics for 3276 dif
   9. Turbidity: The turbidity of water depends on the quantity of solid matter present in the suspended state. It is a measure of the light-emitting properties of water and the test is used to indicate the quality of waste discharge with respect to the colloidal matter. The mean turbidity value obtained for Wondo Genet Campus (0.98 NTU) is lower than the WHO recommended value of 5.00 NTU.
   10. Potability: Indicates if water is safe for human consumption where 1 means Potable and 0 means Not potable.
 
+Libraries:
+```{r}
+library(ggplot2)
+```
+
 ```{r}
 getwd()
 ```
@@ -73,7 +78,7 @@ table(Trihalomethanes_na)
 Turbidity_na <- is.na(dw.potability$Turbidity)
 table(Turbidity_na)
 
-#[@tc] Variables that need to be cleaned:ph, Sulfate, Trihalomethanes
+#[@tc] Variables that need to be cleaned: ph, Sulfate, Trihalomethanes
 ```
 
 Omit NA values:
@@ -81,20 +86,6 @@ Omit NA values:
 #Variables where there are NA values: ph, Sulfate, Trihalomethanes
 na_omit_dw <- na.omit(dw.potability)
 head(na_omit_dw, 10)
-```
-
-
-Numerical Variable Summaries:
-```{r}
-summary(na_omit_dw$ph)
-summary(na_omit_dw$Hardness)
-summary(na_omit_dw$Solids)
-summary(na_omit_dw$Chloramines)
-summary(na_omit_dw$Sulfate)
-summary(na_omit_dw$Conductivity)
-summary(na_omit_dw$Organic_carbon)
-summary(na_omit_dw$Trihalomethanes)
-summary(na_omit_dw$Turbidity)
 ```
 
 Categorical Variable: Potability
@@ -115,3 +106,58 @@ na_omit_dw$potability_cat <- as.factor(na_omit_dw$potability_cat)
 
 str(na_omit_dw)
 ```
+
+Numerical Variable Summaries:
+```{r}
+summary(na_omit_dw$ph)
+summary(na_omit_dw$Hardness)
+summary(na_omit_dw$Solids)
+summary(na_omit_dw$Chloramines)
+summary(na_omit_dw$Sulfate)
+summary(na_omit_dw$Conductivity)
+summary(na_omit_dw$Organic_carbon)
+summary(na_omit_dw$Trihalomethanes)
+summary(na_omit_dw$Turbidity)
+
+str(na_omit_dw)
+```
+
+Frequency Diagrams:
+```{r}
+ph_hist <- ggplot(data = dw.potability,
+                  aes(x = ph,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 0.5)
+ph_hist
+
+Hardness_hist <- ggplot(data = dw.potability,
+                  aes(x = Hardness,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 10)
+Hardness_hist
+
+Solids_hist <- ggplot(data = dw.potability,
+                  aes(x = Solids,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 1500)
+Solids_hist
+
+Chloramines_hist <- ggplot(data = dw.potability,
+                  aes(x = Chloramines,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 0.5)
+Chloramines_hist
+```
+
