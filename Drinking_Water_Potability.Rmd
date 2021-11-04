@@ -45,26 +45,27 @@ head(dw.potability)
 str(dw.potability)
 ```
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+Numeric Variable Summaries:
+```{r}
+summary(dw.potability$ph)
+summary(dw.potability$Hardness)
+summary(dw.potability$Solids)
+summary(dw.potability$Chloramines)
+summary(dw.potability$Sulfate)
+summary(dw.potability$Conductivity)
+summary(dw.potability$Organic_carbon)
+summary(dw.potability$Trihalomethanes)
+summary(dw.potability$Turbidity)
 ```
 
-## R Markdown
+Categorical Variable: Potability
+Potability: Indicates if water is safe for human consumption where 1 means Potable and 0 means Not potable.
+```{r}
+dw.potability$potability_cat[dw.potability$Potability == 1] = "Potable"
+dw.potability$potability_cat[dw.potability$Potability == 0] = "Not Potable"
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+dw.potability$potability_cat <- as.factor(dw.potability$potability_cat)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+str(dw.potability)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
