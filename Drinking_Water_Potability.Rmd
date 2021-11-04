@@ -76,17 +76,25 @@ table(Turbidity_na)
 #[@tc] Variables that need to be cleaned:ph, Sulfate, Trihalomethanes
 ```
 
+Omit NA values:
+```{r}
+#Variables where there are NA values: ph, Sulfate, Trihalomethanes
+na_omit_dw <- na.omit(dw.potability)
+head(na_omit_dw, 10)
+```
+
+
 Numerical Variable Summaries:
 ```{r}
-summary(dw.potability$ph)
-summary(dw.potability$Hardness)
-summary(dw.potability$Solids)
-summary(dw.potability$Chloramines)
-summary(dw.potability$Sulfate)
-summary(dw.potability$Conductivity)
-summary(dw.potability$Organic_carbon)
-summary(dw.potability$Trihalomethanes)
-summary(dw.potability$Turbidity)
+summary(na_omit_dw$ph)
+summary(na_omit_dw$Hardness)
+summary(na_omit_dw$Solids)
+summary(na_omit_dw$Chloramines)
+summary(na_omit_dw$Sulfate)
+summary(na_omit_dw$Conductivity)
+summary(na_omit_dw$Organic_carbon)
+summary(na_omit_dw$Trihalomethanes)
+summary(na_omit_dw$Turbidity)
 ```
 
 Categorical Variable: Potability
