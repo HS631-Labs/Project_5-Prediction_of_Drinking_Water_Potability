@@ -177,5 +177,32 @@ Conductivity_hist <- ggplot(data = dw.potability,
                  na.rm = TRUE,
                  binwidth = 20)
 Conductivity_hist
+
+Carbon_hist <- ggplot(data = dw.potability,
+                  aes(x = Organic_carbon,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 1)
+Carbon_hist
+
+Trihalomethanes_hist <- ggplot(data = dw.potability,
+                  aes(x = Trihalomethanes,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 5)
+Trihalomethanes_hist
+
+Turbidity_hist <- ggplot(data = dw.potability,
+                  aes(x = Turbidity,
+                      fill = potability_cat),
+                  na.rm = TRUE) +
+  geom_histogram(data = dw.potability,
+                 na.rm = TRUE,
+                 binwidth = 0.25)
+Turbidity_hist
 ```
 
