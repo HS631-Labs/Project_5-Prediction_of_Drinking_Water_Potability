@@ -35,22 +35,22 @@ The drinkingwaterpotability.csv file contains water quality metrics for 3276 dif
   10. Potability: Indicates if water is safe for human consumption where 1 means Potable and 0 means Not potable.
 
 Libraries:
-```{r}
+```{r Libraries}
 library(ggplot2)
 ```
 
-```{r}
+```{r Working Directory}
 getwd()
 ```
 
 Read in Dataset:
-```{r}
+```{r Dataset}
 dw.potability <- read.csv("./Data/drinking_water_potability.csv")
 head(dw.potability)
 str(dw.potability)
 ```
 Check for NA values:
-```{r}
+```{r NA Check}
 ph_na <- is.na(dw.potability$ph)
 table(ph_na)
 
@@ -82,7 +82,7 @@ table(Turbidity_na)
 ```
 
 Omit NA values:
-```{r}
+```{r Omit NA}
 #Variables where there are NA values: ph, Sulfate, Trihalomethanes
 na_omit_dw <- na.omit(dw.potability)
 head(na_omit_dw, 10)
@@ -90,7 +90,7 @@ head(na_omit_dw, 10)
 
 Categorical Variable: Potability
 Potability: Indicates if water is safe for human consumption where 1 means Potable and 0 means Not potable.
-```{r}
+```{r Categorical Variable}
 dw.potability$potability_cat[dw.potability$Potability == 1] = "Potable"
 dw.potability$potability_cat[dw.potability$Potability == 0] = "Not Potable"
 
@@ -98,7 +98,7 @@ dw.potability$potability_cat <- as.factor(dw.potability$potability_cat)
 
 str(dw.potability)
 ```
-```{r}
+```{r NA Omit Categorical Variable}
 na_omit_dw$potability_cat[na_omit_dw$Potability == 1] = "Potable"
 na_omit_dw$potability_cat[na_omit_dw$Potability == 0] = "Not Potable"
 
@@ -108,7 +108,7 @@ str(na_omit_dw)
 ```
 
 Numerical Variable Summaries:
-```{r}
+```{r Numerical Variable}
 summary(na_omit_dw$ph)
 summary(na_omit_dw$Hardness)
 summary(na_omit_dw$Solids)
@@ -123,7 +123,7 @@ str(na_omit_dw)
 ```
 
 Frequency Diagrams:
-```{r}
+```{r Frequency}
 ph_hist <- ggplot(data = dw.potability,
                   aes(x = ph,
                       fill = potability_cat),
@@ -207,7 +207,7 @@ Turbidity_hist
 ```
 
 Potability Bar Chart:
-```{r}
+```{r Bar Chart}
 potability_bar <- ggplot(data = dw.potability,
                          aes(x = potability_cat,
                              fill = potability_cat)) + 
