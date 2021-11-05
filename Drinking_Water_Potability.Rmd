@@ -40,6 +40,9 @@ The drinking_water_potability.csv file contains water quality metrics for 3276 d
 Libraries:
 ```{r Libraries}
 library(ggplot2)
+library(car)
+library(ggm)
+library(corrplot)
 ```
 
 ```{r Working Directory}
@@ -224,4 +227,18 @@ potability_bar
 There is no relationship between optimal levels of chemical components contained in treated water and portability of consumed water.
 
 See if you can find any other trends in the data to predict portability of consumed water or find any clear indications of relationships between the predictors.
+
+Numerical Variable Subset:
+```{r Numerical Variable Subset}
+potability_num <- na_omit_dw[ ,
+                                 c(1, 2, 3, 4, 5, 6, 7, 8, 9)]
+head(potability_num, 10)
+```
+
+Correlations:
+```{r Correlation Matrix}
+M <- correlations(x = na_omit_dw[ , 
+                                     c(1, 2, 3, 4, 5, 6, 7, 8, 9)])
+M
+```
 
