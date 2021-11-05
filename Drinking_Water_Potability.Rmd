@@ -255,7 +255,7 @@ M
 ```
 
 Scatterplot of ph vs. Harness, grouped by Potability
-```{r ph vs. Hardness}
+```{r ph vs. Hardness Plot}
 ph_Hardness <- ggplot(data = dw.potability,
                       aes(x = Hardness,
                           y = ph,
@@ -263,7 +263,20 @@ ph_Hardness <- ggplot(data = dw.potability,
                       na.rm = TRUE) +
   geom_point() +
   geom_smooth(method = lm) +
-  labs(title = "ph vs. Hardness")
+  labs(title = "ph vs. Hardness Scatterplot")
 ph_Hardness
+```
+
+Scatterplot of ph vs. Solids, grouped by Potability
+```{r ph vs. Solids Plot}
+ph_Solids <- ggplot(data = dw.potability,
+                      aes(x = Solids,
+                          y = ph,
+                          color = potability_cat),
+                      na.rm = TRUE) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  labs(title = "ph vs. Solids Scatterplot")
+ph_Solids
 ```
 
