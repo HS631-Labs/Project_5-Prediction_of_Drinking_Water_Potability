@@ -257,9 +257,10 @@ M <- correlations(x = na_omit_dw[ ,
 M
 ```
 
-Scatterplot of ph vs. Harness, grouped by Potability
-Correlation: 0.0842915812
-```{r ph vs. Hardness Plot}
+Scatterplots, grouped by Potability
+```{r Grouped Scatterplots}
+# ph vs. Hardness
+# Correlation: 0.0842915812
 ph_Hardness <- ggplot(data = dw.potability,
                       aes(x = Hardness,
                           y = ph,
@@ -269,11 +270,9 @@ ph_Hardness <- ggplot(data = dw.potability,
   geom_smooth(method = lm) +
   labs(title = "ph vs. Hardness Scatterplot")
 ph_Hardness
-```
 
-Scatterplot of ph vs. Solids, grouped by Potability
-Correlation: -0.073568502
-```{r ph vs. Solids Plot}
+# ph vs. Solids
+# Correlation: -0.073568502
 ph_Solids <- ggplot(data = dw.potability,
                       aes(x = Solids,
                           y = ph,
@@ -283,11 +282,9 @@ ph_Solids <- ggplot(data = dw.potability,
   geom_smooth(method = lm) +
   labs(title = "ph vs. Solids Scatterplot")
 ph_Solids
-```
 
-Scatterplot of Hardness vs. Solids, grouped by Potability
-Correlation: -0.063815119
-```{r Hardness vs. Solids Plot}
+# Hardness vs. Solids
+# Correlation: -0.063815119
 Hardness_Solids <- ggplot(data = dw.potability,
                       aes(x = Solids,
                           y = Hardness,
@@ -297,4 +294,18 @@ Hardness_Solids <- ggplot(data = dw.potability,
   geom_smooth(method = lm) +
   labs(title = "Hardness vs. Solids Scatterplot")
 Hardness_Solids
+
+# Trihalomethanes vs. Solids
+# Correlation: -0.054720374
+Trihalomethanes_Solids <- ggplot(data = dw.potability,
+                      aes(x = Solids,
+                          y = Trihalomethanes,
+                          color = potability_cat),
+                      na.rm = TRUE) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  labs(title = "Trihalomethanes vs. Solids Scatterplot")
+Trihalomethanes_Solids
+
+# It appears that the linear models in the ph vs. Hardness and ph vs. Solids scatterplots display very different gradients when grouped by Not Potable and Potable
 ```
