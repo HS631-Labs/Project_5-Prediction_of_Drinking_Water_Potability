@@ -131,6 +131,7 @@ str(na_omit_dw)
 
 Frequency Diagrams:
 ```{r Frequency}
+#Frequency diagrams for numerical variables, grouped by categorical variable potability_cat
 ph_hist <- ggplot(data = dw.potability,
                   aes(x = ph,
                       fill = potability_cat),
@@ -242,11 +243,13 @@ See if you can find any other trends in the data to predict portability of consu
 
 Numerical Variable Subset:
 ```{r Numerical Variable Subset}
+#Numerical Variables: ph, Hardness, Solids, Chloramines, SUlfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity
 potability_num <- na_omit_dw[ ,
                                  c(1, 2, 3, 4, 5, 6, 7, 8, 9)]
 head(potability_num, 10)
 ```
 
+#### Variable Comparisons
 Correlations:
 ```{r Correlation Matrix}
 M <- correlations(x = na_omit_dw[ , 
@@ -254,7 +257,6 @@ M <- correlations(x = na_omit_dw[ ,
 M
 ```
 
-#### Variable Comparisons
 Scatterplot of ph vs. Harness, grouped by Potability
 Correlation: 0.0842915812
 ```{r ph vs. Hardness Plot}
