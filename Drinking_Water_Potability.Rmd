@@ -285,3 +285,16 @@ ph_Solids <- ggplot(data = dw.potability,
 ph_Solids
 ```
 
+Scatterplot of Hardness vs. Solids, grouped by Potability
+Correlation: -0.063815119
+```{r Hardness vs. Solids Plot}
+Hardness_Solids <- ggplot(data = dw.potability,
+                      aes(x = Solids,
+                          y = Hardness,
+                          color = potability_cat),
+                      na.rm = TRUE) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  labs(title = "Hardness vs. Solids Scatterplot")
+Hardness_Solids
+```
