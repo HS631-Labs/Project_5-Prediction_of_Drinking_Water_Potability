@@ -137,7 +137,9 @@ ph_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 0.5)
+                 binwidth = 0.5) +
+  labs(title = "ph Histogram")
+  
 ph_hist
 
 Hardness_hist <- ggplot(data = dw.potability,
@@ -146,7 +148,9 @@ Hardness_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 10)
+                 binwidth = 10) +
+  labs(title = "Hardness Histogram")
+
 Hardness_hist
 
 Solids_hist <- ggplot(data = dw.potability,
@@ -155,7 +159,8 @@ Solids_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 1500)
+                 binwidth = 1500) + 
+  labs(title = "Solids Histogram")
 Solids_hist
 
 Chloramines_hist <- ggplot(data = dw.potability,
@@ -164,7 +169,8 @@ Chloramines_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 0.5)
+                 binwidth = 0.5) +
+  labs(title = "Chrolamines Histogram")
 Chloramines_hist
 
 Sulfate_hist <- ggplot(data = dw.potability,
@@ -173,7 +179,8 @@ Sulfate_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 10)
+                 binwidth = 10) + 
+  labs(title = "Sulfate Histogram")
 Sulfate_hist
 
 Conductivity_hist <- ggplot(data = dw.potability,
@@ -182,7 +189,8 @@ Conductivity_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 20)
+                 binwidth = 20) +
+  labs(title = "Conductivity Histogram")
 Conductivity_hist
 
 Carbon_hist <- ggplot(data = dw.potability,
@@ -191,7 +199,8 @@ Carbon_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 1)
+                 binwidth = 1) +
+  labs(title = "Carbon Histogram")
 Carbon_hist
 
 Trihalomethanes_hist <- ggplot(data = dw.potability,
@@ -200,7 +209,8 @@ Trihalomethanes_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 5)
+                 binwidth = 5) + 
+  labs(title = "Trihalomethanes Histogram")
 Trihalomethanes_hist
 
 Turbidity_hist <- ggplot(data = dw.potability,
@@ -209,7 +219,8 @@ Turbidity_hist <- ggplot(data = dw.potability,
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
                  na.rm = TRUE,
-                 binwidth = 0.25)
+                 binwidth = 0.25) + 
+  labs(title = "Turbidity Histogram")
 Turbidity_hist
 ```
 
@@ -218,7 +229,8 @@ Potability Bar Chart:
 potability_bar <- ggplot(data = dw.potability,
                          aes(x = potability_cat,
                              fill = potability_cat)) + 
-  geom_bar()
+  geom_bar() +
+  labs(title = "Potability Bar Chart")
 potability_bar
 ```
 
@@ -238,7 +250,20 @@ head(potability_num, 10)
 Correlations:
 ```{r Correlation Matrix}
 M <- correlations(x = na_omit_dw[ , 
-                                     c(1, 2, 3, 4, 5, 6, 7, 8, 9)])
+                                     c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)])
 M
+```
+
+Scatterplot of ph vs. Harness, grouped by Potability
+```{r ph vs. Hardness}
+ph_Hardness <- ggplot(data = dw.potability,
+                      aes(x = Hardness,
+                          y = ph,
+                          color = potability_cat),
+                      na.rm = TRUE) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  labs(title = "ph vs. Hardness")
+ph_Hardness
 ```
 
