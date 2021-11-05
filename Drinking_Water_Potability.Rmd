@@ -254,7 +254,9 @@ M <- correlations(x = na_omit_dw[ ,
 M
 ```
 
+#### Variable Comparisons
 Scatterplot of ph vs. Harness, grouped by Potability
+Correlation: 0.0842915812
 ```{r ph vs. Hardness Plot}
 ph_Hardness <- ggplot(data = dw.potability,
                       aes(x = Hardness,
@@ -268,6 +270,7 @@ ph_Hardness
 ```
 
 Scatterplot of ph vs. Solids, grouped by Potability
+Correlation: -0.073568502
 ```{r ph vs. Solids Plot}
 ph_Solids <- ggplot(data = dw.potability,
                       aes(x = Solids,
