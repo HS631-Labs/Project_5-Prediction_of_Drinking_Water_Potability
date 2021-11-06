@@ -5,8 +5,8 @@ knit:: (function(inputFile,
   encoding){
   out_dir <- '../output';
   rmarkdown::render(inputFile,
-  encoding=encoding,
-  output_file=file.path(dirname(inputFile),
+  encoding = encoding,
+  output_file = file.path(dirname(inputFile),
   out_dir,
   'Week8Assignment.html')) })
 
@@ -169,91 +169,162 @@ ph_hist <- ggplot(data = dw.potability,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 0.5) +
   labs(title = "ph Histogram")
-ph_hist
+ph_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$ph,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$ph,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 
 Hardness_hist <- ggplot(data = dw.potability,
                   aes(x = Hardness,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 10) +
   labs(title = "Hardness Histogram")
-
-Hardness_hist
+Hardness_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$Hardness,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$Hardness,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 
 Solids_hist <- ggplot(data = dw.potability,
                   aes(x = Solids,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 1500) + 
   labs(title = "Solids Histogram")
-Solids_hist
+Solids_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$Solids,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$Solids,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 
 Chloramines_hist <- ggplot(data = dw.potability,
                   aes(x = Chloramines,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 0.5) +
   labs(title = "Chrolamines Histogram")
-Chloramines_hist
+Chloramines_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$Chloramines,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$Chloramines,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 
 Sulfate_hist <- ggplot(data = dw.potability,
                   aes(x = Sulfate,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 10) + 
   labs(title = "Sulfate Histogram")
-Sulfate_hist
+Sulfate_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$Sulfate,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$Sulfate,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 
 Conductivity_hist <- ggplot(data = dw.potability,
                   aes(x = Conductivity,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 20) +
   labs(title = "Conductivity Histogram")
-Conductivity_hist
+Conductivity_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$Conductivity,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$Conductivity,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 
 Carbon_hist <- ggplot(data = dw.potability,
                   aes(x = Organic_carbon,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 1) +
   labs(title = "Carbon Histogram")
-Carbon_hist
+Carbon_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$Organic_carbon,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$Organic_carbon,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 
 Trihalomethanes_hist <- ggplot(data = dw.potability,
                   aes(x = Trihalomethanes,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 5) + 
   labs(title = "Trihalomethanes Histogram")
-Trihalomethanes_hist
+Trihalomethanes_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$Trihalomethanes,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$Trihalomethanes,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 
 Turbidity_hist <- ggplot(data = dw.potability,
                   aes(x = Turbidity,
                       fill = potability_cat),
                   na.rm = TRUE) +
   geom_histogram(data = dw.potability,
+                 aes(y = ..density..),
                  na.rm = TRUE,
                  binwidth = 0.25) + 
   labs(title = "Turbidity Histogram")
-Turbidity_hist
+Turbidity_hist +
+  stat_function(fun = dnorm,
+                args = list(mean = mean(dw.potability$Turbidity,
+                                        na.rm = TRUE),
+                            sd = sd(dw.potability$Turbidity,
+                                    na.rm = TRUE)),
+                colour = "red",
+                size = 1)
 ```
 
 Potability Bar Chart:
