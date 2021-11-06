@@ -17,9 +17,9 @@ output: html_document
 Context Access to safe drinking water is essential to health, a basic human right, and a component of effective policy for health protection. This is important as a health and development issue at a national, regional, and local level. In some regions, it has been shown that investments in water supply and sanitation can yield a net economic benefit, since the reductions in adverse health effects and health care costs outweigh the costs of undertaking the interventions.
 
 ## Null Hypothesis
-There is no relationship between optimal levels of chemical components contained in treated water and portability of consumed water.
+There is no relationship between optimal levels of chemical components contained in treated water and potability of consumed water.
 
-See if you can find any other trends in the data to predict portability of consumed water or find any clear indications of relationships between the predictors.
+See if you can find any other trends in the data to predict potability of consumed water or find any clear indications of relationships between the predictors.
 
 ## Content
 The drinking_water_potability.csv file contains water quality metrics for 3276 different water bodies.
@@ -140,7 +140,6 @@ ph_hist <- ggplot(data = dw.potability,
                  na.rm = TRUE,
                  binwidth = 0.5) +
   labs(title = "ph Histogram")
-  
 ph_hist
 
 Hardness_hist <- ggplot(data = dw.potability,
@@ -237,9 +236,9 @@ potability_bar
 
 ### Exploratory Data Analysis
 #### Null Hypothesis
-There is no relationship between optimal levels of chemical components contained in treated water and portability of consumed water.
+There is no relationship between optimal levels of chemical components contained in treated water and potability of consumed water.
 
-See if you can find any other trends in the data to predict portability of consumed water or find any clear indications of relationships between the predictors.
+See if you can find any other trends in the data to predict potability of consumed water or find any clear indications of relationships between the predictors.
 
 Numerical Variable Subset:
 ```{r Numerical Variable Subset}
@@ -262,6 +261,9 @@ dw_corr <- corrplot(M,
                     method = "color",
                     title = "Drinking Water Potability Correlogram")
 dw_corr
+
+# [@tc] The most statistically significant relationship seems to be between Sulfate and Solids levels.
+# Correlation: -0.164142092
 ```
 
 Scatterplots, grouped by Potability
