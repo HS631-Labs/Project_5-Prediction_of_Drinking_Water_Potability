@@ -1,9 +1,14 @@
 ---
 title: "Project_5-Prediction_of_Drinking_Water_Potability"
 author: "Tiffany & Fahad"
-knit:: (function(inputFile, encoding){
+knit:: (function(inputFile,
+  encoding){
   out_dir <- '../output';
-  rmarkdown::render(inputFile, encoding=encoding, output_file=file.path(dirname(inputFile), out_dir, 'Week8Assignment.html')) })
+  rmarkdown::render(inputFile,
+  encoding=encoding,
+  output_file=file.path(dirname(inputFile),
+  out_dir,
+  'Week8Assignment.html')) })
 
 
 output:
