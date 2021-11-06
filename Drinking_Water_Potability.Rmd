@@ -266,7 +266,7 @@ ph_Hardness <- ggplot(data = dw.potability,
                           y = ph,
                           color = potability_cat),
                       na.rm = TRUE) +
-  geom_point() +
+  geom_point(size = 0.5) +
   geom_smooth(method = lm) +
   labs(title = "ph vs. Hardness Scatterplot")
 ph_Hardness
@@ -278,7 +278,7 @@ ph_Solids <- ggplot(data = dw.potability,
                           y = ph,
                           color = potability_cat),
                       na.rm = TRUE) +
-  geom_point() +
+  geom_point(size = 0.5) +
   geom_smooth(method = lm) +
   labs(title = "ph vs. Solids Scatterplot")
 ph_Solids
@@ -290,7 +290,7 @@ Hardness_Solids <- ggplot(data = dw.potability,
                           y = Hardness,
                           color = potability_cat),
                       na.rm = TRUE) +
-  geom_point() +
+  geom_point(size = 0.5) +
   geom_smooth(method = lm) +
   labs(title = "Hardness vs. Solids Scatterplot")
 Hardness_Solids
@@ -302,7 +302,7 @@ Trihalomethanes_Solids <- ggplot(data = dw.potability,
                           y = Trihalomethanes,
                           color = potability_cat),
                       na.rm = TRUE) +
-  geom_point() +
+  geom_point(size = 0.5) +
   geom_smooth(method = lm) +
   labs(title = "Trihalomethanes vs. Solids Scatterplot")
 Trihalomethanes_Solids
