@@ -326,5 +326,7 @@ Sulfate_Solids <- ggplot(data = dw.potability,
   labs(title = "Sulfate vs. Solids Scatterplot")
 Sulfate_Solids
 
-# It appears that the linear models in the Sulfate vs. Solids, ph vs. Hardness and ph vs. Solids scatterplots display very different gradients when grouped by Not Potable and Potable
+# [@tc] It appears that the linear models in the Sulfate vs. Solids, ph vs. Hardness and ph vs. Solids scatterplots display very different gradients when grouped by Not Potable and Potable
+
+# [@tc] The Sulfate vs. Solids plot seems to show that there is almost no relationship between Sulfate and Solids levels in non-potable water, but a visible negative relationship between Sulfate and Solids levels in potable water.
 ```
