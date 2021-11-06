@@ -257,6 +257,13 @@ M <- correlations(x = na_omit_dw[ ,
 M
 ```
 
+```{r Correlogram}
+dw_corr <- corrplot(M,
+                    method = "color",
+                    title = "Drinking Water Potability Correlogram")
+dw_corr
+```
+
 Scatterplots, grouped by Potability
 ```{r Grouped Scatterplots}
 # ph vs. Hardness
@@ -307,5 +314,17 @@ Trihalomethanes_Solids <- ggplot(data = dw.potability,
   labs(title = "Trihalomethanes vs. Solids Scatterplot")
 Trihalomethanes_Solids
 
-# It appears that the linear models in the ph vs. Hardness and ph vs. Solids scatterplots display very different gradients when grouped by Not Potable and Potable
+# Sulfate vs. Solids
+# Correlation: -0.164142092
+Sulfate_Solids <- ggplot(data = dw.potability,
+                      aes(x = Solids,
+                          y = Sulfate,
+                          color = potability_cat),
+                      na.rm = TRUE) +
+  geom_point(size = 0.5) +
+  geom_smooth(method = lm) +
+  labs(title = "Sulfate vs. Solids Scatterplot")
+Sulfate_Solids
+
+# It appears that the linear models in the Sulfate vs. Solids, ph vs. Hardness and ph vs. Solids scatterplots display very different gradients when grouped by Not Potable and Potable
 ```
