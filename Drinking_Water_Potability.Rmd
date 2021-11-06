@@ -39,10 +39,31 @@ The drinking_water_potability.csv file contains water quality metrics for 3276 d
 ### Set up
 Libraries:
 ```{r Libraries}
+library(dplyr)
 library(ggplot2)
+library(tidyverse)
+library(DT)
+library(knitr)
+library(kableExtra)
+library(psych)
+library(gridExtra)
+library(grid)
+library(lattice)
+library(caret)
 library(car)
+library(pastecs)
+library(psych)
+library(wesanderson)
+library(e1071)
+library(boot)
 library(ggm)
+library(Hmisc)
+library(polycor)
+library(ppcor)
 library(corrplot)
+library(formattable)
+library(ggbeeswarm)
+library(gmodels)
 ```
 
 ```{r Working Directory}
@@ -54,8 +75,12 @@ Read in Dataset:
 ```{r Dataset}
 dw.potability <- read.csv("./Data/drinking_water_potability.csv")
 head(dw.potability)
+kable(head(dw.potability), booktabs =T) %>% 
+  kable_styling(latex_options ="striped")
+
 str(dw.potability)
 ```
+
 Check for NA values:
 ```{r NA Check}
 ph_na <- is.na(dw.potability$ph)
