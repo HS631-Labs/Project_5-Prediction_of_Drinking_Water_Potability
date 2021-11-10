@@ -179,7 +179,6 @@ ph_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$ph,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 
 Hardness_hist <- ggplot(data = dw.potability,
@@ -197,7 +196,6 @@ Hardness_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$Hardness,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 
 Solids_hist <- ggplot(data = dw.potability,
@@ -215,7 +213,6 @@ Solids_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$Solids,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 
 Chloramines_hist <- ggplot(data = dw.potability,
@@ -233,7 +230,6 @@ Chloramines_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$Chloramines,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 
 Sulfate_hist <- ggplot(data = dw.potability,
@@ -251,7 +247,6 @@ Sulfate_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$Sulfate,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 
 Conductivity_hist <- ggplot(data = dw.potability,
@@ -269,7 +264,6 @@ Conductivity_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$Conductivity,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 
 Carbon_hist <- ggplot(data = dw.potability,
@@ -287,7 +281,6 @@ Carbon_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$Organic_carbon,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 
 Trihalomethanes_hist <- ggplot(data = dw.potability,
@@ -305,7 +298,6 @@ Trihalomethanes_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$Trihalomethanes,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 
 Turbidity_hist <- ggplot(data = dw.potability,
@@ -323,7 +315,6 @@ Turbidity_hist +
                                         na.rm = TRUE),
                             sd = sd(dw.potability$Turbidity,
                                     na.rm = TRUE)),
-                colour = "red",
                 size = 1)
 ```
 
@@ -335,6 +326,13 @@ potability_bar <- ggplot(data = dw.potability,
   geom_bar() +
   labs(title = "Potability Bar Chart")
 potability_bar
+```
+
+```{r Class Imbalance}
+table(dw.potability$potability_cat)
+
+CI_potability <-  (1998 - 1278)/(1998 + 1278)
+CI_potability
 ```
 
 ### Exploratory Data Analysis
